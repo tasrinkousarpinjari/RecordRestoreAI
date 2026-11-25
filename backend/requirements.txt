@@ -2,9 +2,10 @@
 Flask
 opencv-python-headless
 Pillow
-numpy
-torch
-torchvision
-basicsr
-realesrgan
+numpy<2
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.1.2+cpu
+torchvision==0.16.2+cpu
+basicsr==1.4.2
+realesrgan==0.3.0
 gunicorn
