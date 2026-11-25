@@ -1,8 +1,8 @@
+
 Flask
-gunicorn
-numpy<2
 opencv-python-headless
 Pillow
+numpy
 torch
 torchvision
 basicsr

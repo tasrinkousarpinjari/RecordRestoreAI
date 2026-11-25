@@ -1,10 +1,23 @@
+
+# Python virtual environments
 venv/
 venv312/
+backend/venv/
+backend/venv312/
+
+# Python cache
 __pycache__/
-*.pyc
+*.py[cod]
+
+# Temporary uploaded and restored images
+backend/uploads/*
+backend/outputs/*
+
+# Environment variables and secrets
 .env
 .env.*
-!.env.example
-uploads/
-outputs/
+
+# Editor and operating system files
+.vscode/
 .DS_Store
+Thumbs.db
