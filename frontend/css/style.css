@@ -1,0 +1,295 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: #f5f8fd;
+    color: #26364b;
+}
+
+/* Navigation */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 8%;
+    background: white;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: bold;
+    color: #174c91;
+}
+
+.logo span {
+    color: #2997e8;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #34445c;
+    margin-left: 28px;
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    color: #2385d2;
+}
+
+/* Hero Section */
+.hero {
+    min-height: 480px;
+    display: flex;
+    align-items: center;
+    padding: 70px 10%;
+    background: linear-gradient(120deg, #e5f1ff, #ffffff);
+}
+
+.hero-content {
+    max-width: 750px;
+}
+
+.tagline {
+    color: #2385d2;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-bottom: 22px;
+}
+
+.hero h1 {
+    font-size: 48px;
+    line-height: 1.25;
+    color: #173d70;
+    margin-bottom: 22px;
+}
+
+.hero h1 span {
+    color: #278bd8;
+}
+
+.description {
+    color: #66758b;
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    max-width: 620px;
+}
+
+/* Buttons */
+.main-btn {
+    display: inline-block;
+    background: #247ed0;
+    color: white;
+    border: none;
+    padding: 14px 27px;
+    border-radius: 7px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.main-btn:hover {
+    background: #155b9e;
+    transform: translateY(-2px);
+}
+
+.main-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* About Section */
+.about {
+    padding: 75px 8%;
+    text-align: center;
+    background: white;
+}
+
+.about h2,
+.upload-section h2,
+.result-section h2 {
+    color: #174c91;
+    font-size: 30px;
+    margin-bottom: 18px;
+}
+
+.about > p {
+    max-width: 750px;
+    margin: 0 auto;
+    color: #718096;
+    line-height: 1.8;
+}
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.feature-card {
+    background: #f3f8ff;
+    padding: 30px 20px;
+    border-radius: 10px;
+    border: 1px solid #e0edfb;
+}
+
+.feature-card h3 {
+    color: #247ed0;
+    margin-bottom: 12px;
+}
+
+.feature-card p {
+    color: #718096;
+    line-height: 1.6;
+}
+
+/* Upload Section */
+.upload-section {
+    padding: 75px 8%;
+    text-align: center;
+}
+
+.upload-section > p {
+    color: #718096;
+    margin-bottom: 30px;
+}
+
+.upload-box {
+    background: white;
+    padding: 35px;
+    max-width: 680px;
+    margin: auto;
+    border: 2px dashed #83b8e9;
+    border-radius: 12px;
+}
+
+#imageInput {
+    display: none;
+}
+
+.upload-label {
+    display: block;
+    background: #edf6ff;
+    padding: 45px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    color: #247ed0;
+}
+
+.upload-label:hover {
+    background: #e0efff;
+}
+
+.upload-label p {
+    margin-top: 12px;
+    color: #718096;
+}
+
+#preview-container {
+    margin: 20px 0;
+}
+
+#preview {
+    display: none;
+    max-width: 100%;
+    max-height: 300px;
+    border-radius: 8px;
+}
+
+#restoreBtn {
+    margin-top: 15px;
+}
+
+#status {
+    margin-top: 18px;
+    color: #247ed0;
+}
+
+/* Results */
+.result-section {
+    padding: 65px 8%;
+    text-align: center;
+    display: none;
+}
+
+.comparison {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.result-card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid #e0eaf5;
+}
+
+.result-card h3 {
+    color: #174c91;
+    margin-bottom: 20px;
+}
+
+.result-card img {
+    display: block;
+    max-width: 100%;
+    max-height: 400px;
+    object-fit: contain;
+    margin: 0 auto 20px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    padding: 25px;
+    background: #174c91;
+    color: white;
+}
+
+/* Responsive Design */
+@media (max-width: 700px) {
+
+    .navbar {
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .nav-links a {
+        margin: 8px;
+        font-size: 14px;
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .features {
+        grid-template-columns: 1fr;
+    }
+
+    .comparison {
+        grid-template-columns: 1fr;
+    }
+
+    .upload-box {
+        padding: 20px;
+    }
+}
