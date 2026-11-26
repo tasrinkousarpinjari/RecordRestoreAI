@@ -1,4 +1,6 @@
 
+const API_BASE_URL = "https://recordrestoreai.onrender.com";
+
 const imageInput = document.getElementById("imageInput");
 const preview = document.getElementById("preview");
 const restoreBtn = document.getElementById("restoreBtn");
@@ -6,9 +8,7 @@ const statusText = document.getElementById("status");
 
 let selectedFile = null;
 
-// Image selection
 imageInput.addEventListener("change", function () {
-
     selectedFile = this.files[0];
 
     if (!selectedFile) return;
@@ -27,14 +27,10 @@ imageInput.addEventListener("change", function () {
 
     preview.src = URL.createObjectURL(selectedFile);
     preview.style.display = "block";
-
     statusText.textContent = "Image selected successfully.";
 });
 
-
-// Restore image
 restoreBtn.addEventListener("click", async function () {
-
     if (!selectedFile) {
         statusText.textContent = "Please upload an image first.";
         return;
@@ -47,8 +43,7 @@ restoreBtn.addEventListener("click", async function () {
     statusText.textContent = "Restoring your document...";
 
     try {
-
-        const response = await fetch("/api/restore", {
+        const response = await fetch(`${API_BASE_URL}/api/restore`, {
             method: "POST",
             body: formData
         });
@@ -59,14 +54,16 @@ restoreBtn.addEventListener("click", async function () {
             throw new Error(data.error || "Restoration failed.");
         }
 
-        document.getElementById("originalResult").src = data.original;
+        document.getElementById("originalResult").src =
+            new URL(data.original, API_BASE_URL).href;
 
-        document.getElementById("restoredResult").src = data.restored;
+        document.getElementById("restoredResult").src =
+            new URL(data.restored, API_BASE_URL).href;
 
-        document.getElementById("downloadBtn").href = data.restored;
+        document.getElementById("downloadBtn").href =
+            new URL(data.restored, API_BASE_URL).href;
 
         document.getElementById("results").style.display = "block";
-
         statusText.textContent = data.message;
 
         document.getElementById("results").scrollIntoView({
@@ -74,12 +71,8 @@ restoreBtn.addEventListener("click", async function () {
         });
 
     } catch (error) {
-
         statusText.textContent = error.message;
-
     } finally {
-
         restoreBtn.disabled = false;
-
     }
 });
